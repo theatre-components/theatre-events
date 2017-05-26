@@ -1,0 +1,31 @@
+{
+  "name": "@theatre/event-dispatcher",
+  "version": "0.0.0",
+  "description": "A full implementation of a standard event dispatcher for javascript",
+  "main": "dist/current/src/index.js",
+  "scripts": {
+    "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine",
+    "start": "nodemon -w src -w spec -e ts,tsx,js,json --exec 'tsc --pretty || true'",
+    "compile": "tsc --pretty && tsc --target es6 --outDir dist/next",
+    "prepublish": "npm run compile",
+    "test:watch": "nodemon -w dist/current/spec --exec 'npm run test'"
+  },
+  "keywords": [
+    "Event",
+    "Dispatcher",
+    "ECM6",
+    "Promise",
+    "Future",
+    "Listener"
+  ],
+  "author": "David Jegat <david.jegat@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.47",
+    "@types/node": "^7.0.22",
+    "jasmine": "^2.6.0",
+    "jasmine-spec-reporter": "^4.1.0",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.3.3"
+  }
+}
