@@ -24,11 +24,11 @@ export const LOW_PRIORITY = 255;
 /**
  * A standard NORMAL priority constant
  */
-export const NORMAL_PRIORITY = 125;
+export const NORMAL_PRIORITY = 0;
 
 /**
  * A standard HIGH priority constant
  */
-export const HIGH_PRIORITY = 1;
+export const HIGH_PRIORITY = -255;
 
 export default EventListener;
