@@ -15,7 +15,7 @@ This library is a part of the **Theatre** module. You can use it ase is or with 
 ## Installation
 
 ```
-npm install @theatre/events --save
+npm install theatre-events --save
 ```
 
 ## Quick Start
@@ -25,7 +25,7 @@ This module brings 3 usefull and flexible components: the `EventDispatcher`, the
 ### EventDispatcher: Synchronous
 
 ```javascript
-import {SynchronousEventDispatcher} from '@theatre/events';
+import {SynchronousEventDispatcher} from 'theatre-events';
 
 let dispatcher = new SynchronousEventDispatcher();
 
@@ -41,7 +41,7 @@ dispatcher.dispatch('My Event', {name: 'test'});
 ### EventDispatcher: Asynchronous
 
 ```javascript
-import {AsynchronousEventDispatcher} from '@theatre/events';
+import {AsynchronousEventDispatcher} from 'theatre/events';
 
 let dispatcher = new AsynchronousEventDispatcher();
 
@@ -61,7 +61,7 @@ dispatcher.dispatch('send email', {
 It is quite the same API as an `EventDispatcher`.
 
 ```javascript
-import {SynchronousEventEmitter} from '@theatre/events';
+import {SynchronousEventEmitter} from 'theatre-events';
 
 // You can pass an instance of a `SynchronousEventDispatcher`. If you do so,
 // the event emitter will be a simple wrap of the dispatcher.
@@ -80,7 +80,7 @@ console.log(data.name);
 ### Event Emitter: Asynchronous
 
 ```javascript
-import {AsynchronousEventEmitter} from '@theatre/events';
+import {AsynchronousEventEmitter} from 'theatre-events';
 
 let emitter = new AsynchronousEventEmitter();
 
@@ -100,7 +100,7 @@ Event broadcaster is very similar to an event dispatcher but it don't use
 named event.
 
 ```javascript
-import {SynchronousEventBroadcaster} from '@theatre/events';
+import {SynchronousEventBroadcaster} from 'theatre-events';
 
 let broadcaster = new SynchronousEventBroadcaster();
 
@@ -117,7 +117,7 @@ console.log(data.name);
 ### Event Broadcaster: Asynchronous
 
 ```javascript
-import {AsynchronousEventBroadcaster} from '@theatre/events';
+import {AsynchronousEventBroadcaster} from 'theatre-events';
 
 let broadcaster = new AsynchronousEventBroadcaster();
 
@@ -136,7 +136,7 @@ broadcaster.broadcast(data).then(() => {
 You can control the execution priority of your listeners:
 
 ```javascript
-import {SynchronousEventDispatcher, LOW_PRIORITY, HIGH_PRIORITY} from '@theatre/events';
+import {SynchronousEventDispatcher, LOW_PRIORITY, HIGH_PRIORITY} from 'theatre-events';
 
 let dispatcher = new SynchronousEventDispatcher();
 
