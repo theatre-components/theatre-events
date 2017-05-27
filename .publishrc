@@ -13,6 +13,6 @@
   },
   "confirm": true,
   "publishTag": "latest",
-  "prePublishScript": "npm run compile && npm run test",
+  "prePublishScript": "npm run compile:test",
   "postPublishScript": false
 }
