@@ -1,6 +1,11 @@
 Theatre Events
 ==============
 
+[![Circle CI](https://circleci.com/gh/theatre-components/theatre-events/tree/master.svg?style=shield)](https://circleci.com/gh/theatre-components/theatre-events/tree/master)
+[![npm version](https://badge.fury.io/js/theatre-events.svg)](https://badge.fury.io/js/theatre-events)
+[![dependencies](https://david-dm.org/theatre-components/theatre-events.svg)](https://david-dm.org/theatre-components/theatre-events)
+
+
 This library is a part of the **Theatre** module. You can use it ase is or with a complete **Theatre** installation.
 
 ## About
