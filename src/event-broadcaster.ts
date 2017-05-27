@@ -14,17 +14,17 @@ interface EventBroadcaster
     /**
      * Attach an event listener to the broadcaster
      */
-    addEventListener(listener: EventListener): void;
+    subscribe(listener: EventListener): void;
 
     /**
      * Remove an event listener from the broadcaster
      */
-    removeEventListener(listener: EventListener): void;
+    remove(listener: EventListener): void;
 
     /**
      * Clear the entire broadcaster
      */
-    clearEventListeners(): void;
+    clear(): void;
 }
 
 export default EventBroadcaster;
