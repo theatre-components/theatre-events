@@ -19,7 +19,7 @@
     "Listener"
   ],
   "author": "David Jegat <david.jegat@gmail.com>",
-  "license": "ISC",
+  "license": "WTFPL",
   "devDependencies": {
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.22",
