@@ -1,13 +1,13 @@
 {
   "name": "theatre-events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A full implementation of a standard event dispatcher for javascript",
   "main": "dist/current/src/index.js",
   "scripts": {
     "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine",
     "start": "nodemon -w src -w spec -e ts,tsx,js,json --exec 'tsc --pretty || true'",
     "compile": "tsc --pretty && tsc --target es6 --outDir dist/next",
-    "prepublish": "npm run compile",
+    "prepare": "npm run compile",
     "test:watch": "nodemon -w dist/current/spec --exec 'npm run test'"
   },
   "keywords": [
