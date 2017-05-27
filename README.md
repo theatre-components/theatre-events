@@ -1,14 +1,11 @@
 Theatre Events
 ==============
 
-This library is a part of the **Theatre** module. You can use it ase is or with
-a complete **Theatre** installation.
+This library is a part of the **Theatre** module. You can use it ase is or with a complete **Theatre** installation.
 
 ## About
 
-**Theatre Events** is a short but complete implementation of a standard `ÈventDispatcher` and
-`EventBroadcaster`. It can be use as a standalone module in any project to start
-helping you building robust events system.
+**Theatre Events** is a short but complete implementation of a standard `ÈventDispatcher`, `EventEmitter` and `EventBroadcaster`. It can be use as a standalone module in any project to start helping you building robust events system.
 
 ## Installation
 
@@ -18,9 +15,7 @@ npm install @theatre/events --save
 
 ## Quick Start
 
-This module brings 2 usefull and flexible components: the `EventDispatcher` and
-the `EventBroadcaster`. Both cames with a **synchronous** and **asynchronous**
-implementation.
+This module brings 3 usefull and flexible components: the `EventDispatcher`, the `EventBroadcaster` and the `EventEmitter`. Both cames with a **synchronous** and **asynchronous** implementation.
 
 ### EventDispatcher: Synchronous
 
@@ -56,7 +51,84 @@ dispatcher.dispatch('send email', {
 }).then(d => console.log('The email has been sent')).catch(console.error);
 ```
 
+### Event Emitter: Synchronous
+
+It is quite the same API as an `EventDispatcher`.
+
+```javascript
+import {SynchronousEventEmitter} from '@theatre/events';
+
+// You can pass an instance of a `SynchronousEventDispatcher`. If you do so,
+// the event emitter will be a simple wrap of the dispatcher.
+let emitter = new SynchronousEventEmitter();
+
+emitter.on('test', (payload) => {
+    payload.name = 'test';
+});
+
+let data = {};
+emitter.emit('test', data);
+
+console.log(data.name);
+```
+
+### Event Emitter: Asynchronous
+
+```javascript
+import {AsynchronousEventEmitter} from '@theatre/events';
+
+let emitter = new AsynchronousEventEmitter();
+
+emitter.on('test', (payload) => {
+    payload.name = 'test';
+});
+
+let data = {};
+emitter.emit('test', data).then(() => {
+    console.log(data.name);
+}).catch(console.error);
+```
+
+### Event Broadcaster: Synchronous
+
+Event broadcaster is very similar to an event dispatcher but it don't use
+named event.
+
+```javascript
+import {SynchronousEventBroadcaster} from '@theatre/events';
+
+let broadcaster = new SynchronousEventBroadcaster();
+
+broadcaster.subscribe((data) => {
+    data.name ='test';
+});
+
+let data = {};
+broadcaster.broadcast(data);
+
+console.log(data.name);
+```
+
+### Event Broadcaster: Asynchronous
+
+```javascript
+import {AsynchronousEventBroadcaster} from '@theatre/events';
+
+let broadcaster = new AsynchronousEventBroadcaster();
+
+broadcaster.subscribe((data) => {
+    data.name ='test';
+});
+
+let data = {};
+broadcaster.broadcast(data).then(() => {
+    console.log(data.name);
+}).catch(console.error);
+```
+
 ### Event listener priority
+
+You can control the execution priority of your listeners:
 
 ```javascript
 import {SynchronousEventDispatcher, LOW_PRIORITY, HIGH_PRIORITY} from '@theatre/events';
@@ -84,5 +156,3 @@ dispatcher.addEventListener('send message', sendFirst);
 
 dispatcher.dispatch('test');
 ```
-
-
