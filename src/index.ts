@@ -5,3 +5,5 @@ export {default as SynchronousEventDispatcher} from './event-dispatcher/synchron
 export {default as AsynchronousEventDispatcher} from './event-dispatcher/asynchronous-event-dispatcher';
 export {default as SynchronousEventBroadcaster} from './event-broadcaster/synchronous-event-broadcaster';
 export {default as AsynchronousEventBroadcaster} from './event-broadcaster/asynchronous-event-broadcaster';
+export {default as SynchronousEventEmitter} from './event-emitter/synchronous-event-emitter';
+export {default as AsynchronousEventEmitter} from './event-emitter/asynchronous-event-emitter';
