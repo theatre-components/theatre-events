@@ -1,3 +1,9 @@
 node_modules/
 /dist/*
 !/dist/.gitkeep
+!/dist/current
+!/dist/next
+/dist/next/*
+/dist/current/*
+!/dist/current/.gitkeep
+!/dist/next/.gitkeep

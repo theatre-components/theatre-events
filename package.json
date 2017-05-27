@@ -7,7 +7,7 @@
     "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine",
     "start": "nodemon -w src -w spec -e ts,tsx,js,json --exec 'tsc --pretty || true'",
     "compile": "tsc --pretty && tsc --target es6 --outDir dist/next",
-    "prepare": "npm run compile",
+    "prepublish": "npm run test && npm run compile",
     "test:watch": "nodemon -w dist/current/spec --exec 'npm run test'"
   },
   "keywords": [
