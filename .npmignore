@@ -5,3 +5,4 @@ spec
 jasmine.json
 *.tags
 tsconfig.json
+.publishrc
