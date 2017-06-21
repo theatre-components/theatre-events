@@ -13,7 +13,9 @@ interface EventListener
      * This function is attached to a dispatcher or broadcaster to handle
      * a triggered event payload.
      */
-    <T>(payload?: T): void|Promise<void|void[]>;
+    <T>(payload?: T): any|Promise<any>;
+
+    <T, R>(payload?: T): R|Promise<R>;
 }
 
 /**
