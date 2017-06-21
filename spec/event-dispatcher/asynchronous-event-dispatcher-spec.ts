@@ -29,6 +29,8 @@ describe('AsynchronousEventDispatcher', () => {
             expect(trigger).toBe(true);
             expect(untriggered).toBe(false);
 
+            expect(d).toEqual({name: 'payload'});
+
             next()
         });
     });

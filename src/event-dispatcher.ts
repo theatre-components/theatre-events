@@ -15,7 +15,7 @@ interface EventDispatcher
      * Dispatch an event. It can be synchronous or asynchronous depending
      * on the implementation of the event dispatcher.
      */
-    dispatch<T>(eventName: EventTarget, payload?: T): void|Promise<void|void[]>;
+    dispatch<T>(eventName: EventTarget, payload?: T): T|Promise<T>;
 
     /**
      * Add a new event listener to the target eventName

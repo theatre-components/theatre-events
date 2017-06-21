@@ -9,7 +9,7 @@ interface EventBroadcaster
     /**
      * Broadcast synchronously or not a given payload
      */
-    broadcast<T>(payload?: T): void|Promise<void|void[]>;
+    broadcast<T>(payload?: T): T|Promise<T>;
 
     /**
      * Attach an event listener to the broadcaster

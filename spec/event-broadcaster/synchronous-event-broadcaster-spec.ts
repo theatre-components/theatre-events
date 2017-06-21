@@ -16,7 +16,9 @@ describe('SynchronousEventBroadcaster', () => {
             expect(data.quantity).toBe(10);
         });
 
-        broadcaster.broadcast({name: 'test', quantity: 10});
+        let data = broadcaster.broadcast({name: 'test', quantity: 10});
+
+        expect(data).toEqual({name: 'test', quantity: 10});
     });
 
     it('can remove subscribers', () => {

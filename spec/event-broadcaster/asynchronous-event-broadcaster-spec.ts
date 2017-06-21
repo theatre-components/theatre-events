@@ -10,13 +10,24 @@ describe('AsynchronousEventBroadcaster', () => {
     it('can register subscribers and broadcast payload to all those subscribers', (next) => {
         broadcaster.subscribe(async (data) => {
             expect(data.name).toBe('test');
+
+            data.name = 'passed';
         });
 
         broadcaster.subscribe(async (data) => {
             expect(data.quantity).toBe(10);
+
+            data.quantity = 0;
         });
 
-        broadcaster.broadcast({name: 'test', quantity: 10}).then(next).catch(next);
+        broadcaster.broadcast({name: 'test', quantity: 10})
+            .then(d => {
+                expect(d).toEqual({name: 'passed', quantity: 0});
+
+                next();
+            })
+            .catch(next)
+        ;
     });
 
     it('can remove subscribers', (next) => {

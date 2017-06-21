@@ -16,12 +16,12 @@ export default class AsynchronousEventDispatcher implements EventDispatcher
     /**
      * {@inheritdoc}
      */
-    dispatch<T>(name: EventTarget, payload?: T): Promise<void[]>
+    dispatch<T>(name: EventTarget, payload?: T): Promise<T>
     {
         let promises = [];
 
         if (!this.eventListeners.has(name)) {
-            return Promise.all(promises);
+            return Promise.all(promises).then(() => payload);
         }
 
         let priorities: number[] = [];
@@ -31,7 +31,7 @@ export default class AsynchronousEventDispatcher implements EventDispatcher
             promises.push(l(payload))
         }));
 
-        return Promise.all(promises);
+        return Promise.all(promises).then(() => payload);
     }
 
     /**

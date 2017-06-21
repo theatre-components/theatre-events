@@ -16,7 +16,7 @@ export default class SynchronousEventBroadcaster implements EventBroadcaster
     /**
      * {@inheritdoc}
      */
-    broadcast<T>(payload?: T): void
+    broadcast<T>(payload?: T): T
     {
         let priorities = [];
         this.subscribers.forEach((s, priority) => priorities.push(priority));
@@ -24,6 +24,8 @@ export default class SynchronousEventBroadcaster implements EventBroadcaster
         priorities.sort().map((priority) => {
             this.subscribers.get(priority).map(s => s(payload));
         });
+
+        return payload;
     }
 
     /**

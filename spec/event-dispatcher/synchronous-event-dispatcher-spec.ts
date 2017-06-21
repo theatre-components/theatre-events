@@ -25,10 +25,11 @@ describe('SynchronousEventDispatcher', () => {
 
         dispatcher.addEventListener('test', listener);
         dispatcher.addEventListener('untriggered', undispactchedListener);
-        dispatcher.dispatch<Payload>('test', {name: 'payload'});
+        let event = dispatcher.dispatch<Payload>('test', {name: 'payload'});
 
         expect(trigger).toBe(true);
         expect(untriggered).toBe(false);
+        expect(event).toEqual({name: 'payload'});
     });
 
     it('can unregister a listener and/or clear it\'s listener stack', () => {

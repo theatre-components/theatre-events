@@ -11,7 +11,7 @@ interface EventEmitter
     /**
      * Emit an event to all attached listeners
      */
-    emit<T>(name: EventTarget, payload?: T): void|Promise<void|void[]>;
+    emit<T>(name: EventTarget, payload?: T): T|Promise<T>;
 
     /**
      * Attach a listener to the emitter

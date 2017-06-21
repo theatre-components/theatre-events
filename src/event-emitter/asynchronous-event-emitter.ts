@@ -18,7 +18,7 @@ export default class AsynchronousEventEmitter implements EventEmitter
     /**
      * {@inheritdoc}
      */
-    emit<T>(name: EventTarget, payload?: T): Promise<void|void[]>
+    emit<T>(name: EventTarget, payload?: T): Promise<T>
     {
         return this.dispatcher.dispatch(name, payload);
     }

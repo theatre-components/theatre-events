@@ -16,7 +16,7 @@ export default class AsynchronousEventBroadcaster implements EventBroadcaster
     /**
      * {@inheritdoc}
      */
-    broadcast<T>(payload?: T): Promise<void|void[]>
+    broadcast<T>(payload?: T): Promise<T>
     {
         let promises = [];
         let priorities = [];
@@ -26,7 +26,7 @@ export default class AsynchronousEventBroadcaster implements EventBroadcaster
             this.subscribers.get(priority).map(s => promises.push(s(payload)));
         });
 
-        return Promise.all(promises);
+        return Promise.all(promises).then(() => payload);
     }
 
     /**

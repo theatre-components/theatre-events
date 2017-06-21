@@ -16,10 +16,10 @@ export default class SynchronousEventDispatcher implements EventDispatcher
     /**
      * {@inheritdoc}
      */
-    dispatch<T>(name: EventTarget, payload?: T): void
+    dispatch<T>(name: EventTarget, payload?: T): T
     {
         if (!this.eventListeners.has(name)) {
-            return;
+            return payload;
         }
 
         let priorities: number[] = [];
@@ -30,6 +30,8 @@ export default class SynchronousEventDispatcher implements EventDispatcher
         priorities.sort().map((priority) => {
             this.eventListeners.get(name).get(priority).map(l => l(payload));
         });
+
+        return payload;
     }
 
     /**

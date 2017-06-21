@@ -9,7 +9,7 @@ describe('SynchronousEventEmitter', () => {
         emitter = new SynchronousEventEmitter(dispatcher);
     });
 
-    it('can register listeners and emit events through the decorated dispatcher', () => {
+    it('can register listeners and emit events through the wrapped dispatcher', () => {
         let l1 = (payload) => {
             payload.l1 = true;
         };
@@ -21,10 +21,11 @@ describe('SynchronousEventEmitter', () => {
         emitter.on('test', l2);
 
         let data: any = {};
-        emitter.emit('test', data);
+        let e = emitter.emit('test', data);
 
         expect(data.l1).toBe(true);
         expect(data.l2).toBe(true);
+        expect(e).toBe(data);
     });
 
     it('can unregister a listener and/or clear it\'s listener stack', () => {

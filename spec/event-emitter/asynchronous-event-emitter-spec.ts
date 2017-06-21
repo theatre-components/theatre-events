@@ -21,9 +21,10 @@ describe('AsynchronousEventEmitter', () => {
         emitter.on('test', l2);
 
         let data: any = {};
-        emitter.emit('test', data).then(() => {
+        emitter.emit('test', data).then(d => {
             expect(data.l1).toBe(true);
             expect(data.l2).toBe(true);
+            expect(d).toBe(data);
 
             next();
         }).catch(e => console.error(e) || expect(e).not.toBeDefined() || next());

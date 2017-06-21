@@ -18,9 +18,9 @@ export default class SynchronousEventEmitter implements EventEmitter
     /**
      * {@inheritdoc}
      */
-    emit<T>(name: EventTarget, payload?: T): void
+    emit<T>(name: EventTarget, payload?: T): T
     {
-        this.dispatcher.dispatch(name, payload);
+        return this.dispatcher.dispatch(name, payload);
     }
 
     /**
