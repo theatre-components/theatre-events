@@ -1,6 +1,6 @@
 {
   "name": "theatre-events",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "A full implementation of a standard event dispatcher for javascript",
   "main": "dist/current/src/index.js",
   "typings": "./dist/current/src/index.d.ts",
